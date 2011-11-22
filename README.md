@@ -28,7 +28,7 @@ Formats a text stream as JSON.  Offers additional functionality over "python -mj
 			}
 		]
 
-	> echo '{ "c" : 3, "b" : 2, "a" : 1 }' |python formatjson.py --sort-keys
+	> echo '{ "c" : 3, "b" : 2, "a" : 1 }' | python formatjson.py --sort-keys
 
 		{
 		    "a": 1, 
