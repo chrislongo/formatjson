@@ -38,7 +38,14 @@ Formats a text stream as JSON.  Offers additional functionality over "python -mj
 
 # Arguments
 
-	-h, --help            show this help message and exit
+	-h, --help          show this help message and exit
 	-i level, --indent level
-	                      Level of indentation. Defaults to 4.
-	-s, --sort-keys       Sorts output by key.
+	                    level of indentation (default 4)
+	-c separator, --item-separator separator
+	                    dictionary seperator (default ',')
+	-d separator, --dict-separator separator
+	                    dictionary seperator (default ':')
+	-s, --sort-keys     sorts output by key
+	-w, --strip-whitespace
+	                    remove whitespace from output (compact JSON)
+
