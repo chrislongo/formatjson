@@ -5,10 +5,10 @@ import json
 import sys
 
 def parse_args():
-	parser = argparse.ArgumentParser(description='Format text stream as JSON.')
+	parser = argparse.ArgumentParser(description='Formats a text stream as JSON.')
 
 	parser.add_argument("-i", "--indent", metavar="level", type=int, default=4, dest="indent", 
-                        help="Level of indentation.")
+                        help="Level of indentation.  Defaults to 4.")
 	parser.add_argument("-s", "--skip-keys", action="store_true", default=False, dest="skipkeys", 
                         help="Skip non-basic (str, unicode, int, long, float, bool, None) keys.")                        
 
