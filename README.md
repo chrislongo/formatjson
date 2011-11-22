@@ -6,7 +6,7 @@ Formats a text stream as JSON.  Offers functionality over "python -mjson.tool"
 
 	echo "[ { \"foo\" : \"bar\", \"hello\" : 1 }]" | python formatjson.py --indent 2
 
-	curl http://api.twitter.com/1/statuses/pblic_timeline.json | python formatjson.py
+	curl http://api.twitter.com/1/statuses/public_timeline.json | python formatjson.py
 
 # Arguments
 
