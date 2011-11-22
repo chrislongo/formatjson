@@ -8,7 +8,7 @@ import re
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description='Formats a text stream as JSON.')
+        description='Formats (tidies) a JSON text stream.')
 
     parser.add_argument(
         '-i','--indent',
@@ -48,29 +48,38 @@ def parse_args():
 
     return parser.parse_args()
 
-def run_filter(args):
+def parse_json(input):
     text = None
-
-    input = sys.stdin.read()
 
     try:
         obj = json.loads(input)
-        
+
         text = json.dumps(
             obj, 
             indent=args.indent, 
             sort_keys=args.sort_keys,
             separators=(args.item_separator, args.dict_separator))
-    
+
     except ValueError:
         print 'Could not parse input as JSON.'
 
-    if args.strip_whitespace:
-        pattern = re.compile(r'\s+')
-        text = re.sub(pattern, '', text)
+    return text
+
+def strip_whitespace(text):
+    pattern = re.compile(r'\s+')
+    return re.sub(pattern, '', text)
+
+def filter(args):
+    input = sys.stdin.read()
+
+    text = parse_json(input)
 
     if text is not None:
+        
+        if args.strip_whitespace:
+            text = strip_whitespace(text)
+        
         sys.stdout.write(text)
 
 args = parse_args()
-run_filter(args)
+filter(args)
