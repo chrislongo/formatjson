@@ -18,11 +18,11 @@ def parse_args():
         help='Level of indentation.  Defaults to 4.')
     
     parser.add_argument(
-        '-s','--skip-keys',
+        '-s','--sort-keys',
         action='store_true',
         default=False,
-        dest='skipkeys',
-        help='Skip non-basic (str, unicode, int, long, float, bool, None) keys.')
+        dest='sort_keys',
+        help='Sorts output by key.')
 
     return parser.parse_args()
 
@@ -33,7 +33,7 @@ def run_filter(args):
 
     try:
         obj = json.loads(input)
-        text = json.dumps(obj, indent=args.indent, skipkeys=args.skipkeys)
+        text = json.dumps(obj, indent=args.indent, sort_keys=args.sort_keys)
     except ValueError:
         print 'Could not parse input as JSON.'
 
